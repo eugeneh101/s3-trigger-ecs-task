@@ -1,0 +1,16 @@
+{
+    "app": "python3 app.py",
+    "context": {
+        "environment": {
+            "AWS_REGION": "us-east-1",
+            "IAM_ROLE_NAME": "ecs-practice-iam-role",
+            "VPC_NAME": "ecs-practice-vpc",
+            "AVAILABILITY_ZONES": ["a", "b"],
+            "S3_BUCKET_NAME": "s3-trigger-ecs-task-bucket",
+            "ECR_REPO_NAME": "ecs-practice-ecr-repo",
+            "EVENTBRIDGE_RULE_NAME": "s3-trigger-ecs-task-rule",
+            "ECS_TASK_DEFINITION_NAME": "ecs-practice-task-definition",
+            "ECS_CLUSTER_NAME": "ecs-practice-cluster"
+        }
+    }
+}
