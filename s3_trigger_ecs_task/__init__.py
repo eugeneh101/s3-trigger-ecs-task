@@ -169,8 +169,18 @@ class S3TriggerEcsTaskStack(Stack):
                     events_targets.ContainerOverride(
                         container_name=environment["ECS_TASK_DEFINITION_NAME"],
                         environment=[
-                            {"name": "S3_BUCKET", "value": "$.detail.bucket.name"},
-                            {"name": "S3_OBJECT_KEY", "value": "$.detail.object.key"},
+                            events_targets.TaskEnvironmentVariable(
+                                name="S3_BUCKET",
+                                value=events.EventField.from_path(
+                                    "$.detail.bucket.name"
+                                ),
+                            ),
+                            events_targets.TaskEnvironmentVariable(
+                                name="S3_OBJECT_KEY",
+                                value=events.EventField.from_path(
+                                    "$.detail.object.key"
+                                ),
+                            ),
                         ],
                     )
                 ],
